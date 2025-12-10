@@ -97,7 +97,7 @@ window.onload = () => showPage('home');
                padding:2px 0px; position:sticky; top:0; z-index:50;">
 
   <!-- BIG Left Image -->
-  <img src="c:\Users\Lenovo\Downloads\left picv2.png" 
+  <img src="c:\Users\Lenovo\Html Code\left picv2.png" 
        alt="left decoration" 
        style="height:100px;">
 
