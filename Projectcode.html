@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Literacy & Cyber Safety — Themed Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --indigo:#1e1691;
+      --periwinkle:#8cacec;
+      --lavender:#e2e7f3;
+      --royal:#435eb9;
+      --text:#2b2b2b;
+      --card-shadow: 0 8px 24px rgba(43,43,43,0.08);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Montserrat, Arial, sans-serif;background:linear-gradient(180deg,var(--lavender),var(--periwinkle));color:var(--text);-webkit-font-smoothing:antialiased}
+
+    /* Top header */
+    header.site-header{background:var(--indigo);color:var(--lavender);padding:20px 16px;text-align:center;position:sticky;top:0;z-index:50}
+    header .title{font-family:Lora, serif;font-size:clamp(20px,3vw,28px);margin:0}
+    header .tag{font-size:14px;opacity:0.9}
+
+    /* Nav */
+    nav.main-nav{display:flex;justify-content:center;gap:18px;padding:12px 16px;background:linear-gradient(90deg,rgba(57, 73, 214, 0.95),rgba(30, 43, 99, 0.95));}
+    nav.main-nav a{color:var(--lavender);text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:600}
+    nav.main-nav a:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+
+    /* Container */
+    .container{max-width:1100px;margin:28px auto;padding:0 16px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(241,231,223,0.9));padding:28px;border-radius:14px;box-shadow:var(--card-shadow)}
+    .hero h1{font-family:Lora, serif;margin:0 0 8px;font-size:36px;color:var(--indigo)}
+    .hero p{margin:0 0 16px;line-height:1.5}
+    .cta{display:inline-block;background:var(--royal);color:white;padding:10px 16px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(183,139,89,0.18);transition:transform .18s ease}
+    .cta:hover{transform:translateY(-4px)}
+
+    .hero-visual{border-radius:12px;overflow:hidden;border:6px solid rgba(238, 242, 247, 0.6)}
+    .hero-visual img{display:block;width:100%;height:100%;object-fit:cover}
+
+    /* Sections */
+    section.page{background:transparent;margin-top:20px}
+    .card{background:white;padding:20px;border-radius:12px;box-shadow:var(--card-shadow)}
+
+    /* About two-column */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .two-col img{width:100%;border-radius:10px;height:100%;object-fit:cover}
+
+    /* Menu grid */
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .menu-item{background:white;border-radius:12px;padding:12px;box-shadow:var(--card-shadow);transition:transform .18s ease,box-shadow .18s ease}
+    .menu-item:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(43,43,43,0.12)}
+    .menu-item img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .menu-item h4{margin:10px 0 6px;font-size:16px}
+    .price{font-weight:700;color:var(--indigo)}
+
+    /* Community */
+    .reviews{display:grid;grid-template-columns:1fr;gap:12px}
+    .review{background:white;padding:14px;border-radius:10px;box-shadow:var(--card-shadow)}
+    .social-embed{margin-top:12px}
+
+    /* Contact form */
+    form.contact-form{display:grid;gap:12px}
+    input[type=text],input[type=email],textarea{padding:12px;border-radius:8px;border:1px solid #e6e0da;font-family:inherit}
+    button[type=submit]{background:var(--indigo);color:var(--lavender);padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+
+    /* Footer */
+    footer{margin-top:28px;padding:24px;text-align:center;color:rgba(43,43,43,0.8)}
+
+    /* Subtle animations */
+    .fade-up{opacity:0;transform:translateY(10px);animation:fadeUp .7s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+    }
+  </style>
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+  document.getElementById(pageId).style.display = 'block';
+}
+window.onload = () => showPage('home');
+</script>
+</head>
+<body>
+  
+ <header class="site-header" 
+        style="display:flex; align-items:center; justify-content:space-between; 
+               background:linear-gradient(to right, #110b49, var(--indigo),  #110b49 );
+               color:var(--lavender);
+               padding:2px 0px; position:sticky; top:0; z-index:50;">
+
+  <!-- BIG Left Image -->
+  <img src="c:\Users\Lenovo\Downloads\left picv2.png" 
+       alt="left decoration" 
+       style="height:100px;">
+
+  <!-- Center Text -->
+  <div style="text-align:center; flex-grow:1;">
+    <h1 style="font-family:'Playfair Display', serif; font-size:55px; margin:0;">
+      Click Smart, Stay Safe
+    </h1>
+    <div style="font-family:'Playfair Display', serif; font-size:22px; color:#acc2ee;">
+      Click with intention, stay in protection
+    </div>
+  </div>
+
+  <!-- BIG Right Image -->
+  <img src="c:\Users\Lenovo\Downloads\right picv2.png" 
+       alt="right decoration" 
+       style="height:100px;">
+</header>
+
+  <nav class="main-nav">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('about')">About Us</a>
+    <a href="#" onclick="showPage('digitalLiteracy')">Digital Literacy Tips</a>
+    <a href="#" onclick="showPage('cyberSafety')">Cyber Safety Tips</a>
+    <a href="#" onclick="showPage('quizPage')">Quiz</a>
+    <a href="#" onclick="showPage('glossary')">Glossary</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </nav>
+
+
+
+  <main class="container">
+    <!-- HOME / HERO -->
+    <section style="display:none;" id="home" class="page">
+      <div class="hero">
+        <div class="hero-card fade-up">
+          <h1>Learn to stay safe online</h1>
+          <p>
+            Digital Literacy and Cyber Safety are at the heart of our platform. We make digital literacy easy to understand by teaching 
+            the essential skills needed to navigate the online world with confidence. At the same time, we focus on 
+            cyber safety by guiding you on how to stay safe, secure, and responsible while using the internet. From identifying reliable
+             information and protecting your privacy to recognizing scams and communicating safely, we help you build strong digital literacy and 
+             cyber safety habits for a safer online experience.
+          </p>
+          <p>
+            Click Smart, Stay Safe helps kids, parents, teachers, older adults, and the community master Digital Literacy and Cyber Safety. 
+            Learn to protect your privacy, spot scams, and navigate the web confidently.
+          </p>
+          <a class="cta" href="#menu">Start Learning</a>
+        </div>
+
+        <div class="hero-visual fade-up" style="animation-delay:.08s">
+          <!-- developer: use uploaded image path below -->
+          <img src="c:\Users\Lenovo\Downloads\3d digital spacce.jpg" alt="hero image">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section style="display:none;" id="about" class="page">
+      <div class="card two-col fade-up" style="animation-delay:.12s">
+        <div>
+          <h2>About Us</h2>
+          <p>
+            We exist for the sole purpose of equipping individuals and communities with knowledge and skills 
+            that can help them live in the digital world in an ethical and safe way. In a world where technology has 
+            become an integral part of our lives, the way to use it wisely is something everyone must know. It is our mission to provide access
+             to digital literacy and cyber safety, to make them understandable for all and to make their use easy.
+
+          </p>
+          <p>
+            We aim to empower every user through easy-to-understand guides, practical resources, and real-life examples.
+             Our platform teaches you how to identify trustworthy information, protect your personal data, stay alert to online threats, 
+             and build strong digital habits. Whether you’re a student, parent, teacher, older adult, or anyone who uses the internet, we’re 
+             here to help you become more confident and secure online.
+          </p>
+        <p>
+          Our platform also offers practical tips, tutorials, and interactive tools to strengthen your digital skills.
+           We help you understand how online platforms work, manage your digital footprint, and stay protected in an ever-changing online world.
+            Whether for school, work, or daily life, we’re here to help you become a smarter and safer digital citizen."
+        </p>
+        </div>
+        <div>
+          <img src="c:\Users\Lenovo\Downloads\about us design.jpg" alt="about visual">
+        </div>
+      </div>
+    </section>
+
+    <!-- digitalLiteracy (Resources) -->
+    <section style="display:none;" id="digitalLiteracy" class="page">
+      <h2 style="margin:0 0 12px;font-family:Lora, serif;color:var(--indigo)">Discover Digital Literacy: Your Guide to a Smarter Online World</h2>
+      <p style="margin:0 0 14px">Digital literacy is the skill of using technology with confidence, awareness, and safety. It helps you find reliable 
+        information, protect your personal data, and communicate responsibly online. With digital literacy, you can explore the internet wisely and 
+        make informed, safe choices every day.</p>
+
+      <div class="menu-grid">
+        <article class="menu-item fade-up">
+          <img src="c:\Users\Lenovo\Downloads\pang digital literacy.jpg" alt="digital basics">
+          <h4>Be an informed consumer of information on the web.</h4>
+          <p style="margin:6px 0 8px;">One should ensure that the online content is credible by checking 
+            the author of the content, the time when it was published, and also by looking at what is backing the content being said. </p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.06s">
+          <img src="c:\Users\Lenovo\Downloads\fact check.jpg" alt="cyber safety">
+          <h4>Before​‍​‌‍​‍‌​‍​‌‍​‍‌ You Share Make sure Your Facts Are Correct</h4>
+          <p style="margin:6px 0 8px;">If​‍​‌‍​‍‌​‍​‌‍​‍‌ you want to be totally sure that your claim is right, you have to 
+            verify it by checking a number of trustworthy sources so 
+            that you do not share false information or refer to doubtful ​‍​‌‍​‍‌​‍​‌‍​‍‌assertions.</p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.12s">
+          <img src="c:\Users\Lenovo\Downloads\httpwebsite.jpg" alt="social media">
+          <h4>Assess Website Reliability.</h4>
+          <p style="margin:6px 0 8px;">​‍​‌‍​‍‌​‍​‌‍​‍‌You must not participate in any action like clicking on links, 
+            downloading files, or interacting with the content if you have not thoroughly checked the content. </p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.18s">
+          <img src="c:\Users\Lenovo\Downloads\protectInformation.jpg" alt="privacy">
+          <h4>Protect Personal Information.</h4>
+          <p style="margin:6px 0 8px;">Individuals must be very cautious about the info that they 
+            put out on the net and should at all times check their privacy settings so as to keep their 
+            digital exposure at a minimum level.</p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.24s">
+          <img src="c:\Users\Lenovo\Downloads\communication.jpg" alt="privacy">
+          <h4>Use Secure and Ethical Communication.</h4>
+          <p style="margin:6px 0 8px;">Respective behavior is a must for a person to maintain 
+            when communicating with others, giving proper credits when using someone else's work, and following the 
+            required etiquette in the digital ​‍​‌‍​‍‌​‍​‌‍​‍‌world.</p>
+        </article>
+ 
+        <article class="menu-item fade-up" style="animation-delay:.30s">
+          <img src="c:\Users\Lenovo\Downloads\password protection.jpg" alt="privacy">
+          <h4>Strengthen Password and Account Practices.</h4>
+          <p style="margin:6px 0 8px;">On top of this make a decision that your password will be strong and 
+            different from any other one you have, and then go on and change this password from time to time so 
+            that your account security will be high.</p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.36s">
+          <img src="c:\Users\Lenovo\Downloads\trends.jpg" alt="privacy">
+          <h4>Stay​‍​‌‍​‍‌​‍​‌‍​‍‌ Updated on Digital Trends.</h4>
+          <p style="margin:6px 0 8px;">You must constantly keep up with the newest tech trends, 
+            know the potential security problems, and at the same time be aware of the best practices 
+            in digital environments.</p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.42s">
+          <img src="c:\Users\Lenovo\Downloads\manage files.jpg" alt="privacy">
+          <h4>Organize and Manage Digital Files ​‍​‌‍​‍‌​‍​‌‍​‍‌Efficiently.</h4>
+          <p style="margin:6px 0 8px;">One should use the various means of organizing such as folders, 
+            cloud, and backups not only to have a neat digital workspace but also to have a safe one.</p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.49s">
+          <img src="c:\Users\Lenovo\Downloads\critical thinking skills.jpg" alt="privacy">
+          <h4>Develop Critical Thinking Skills.</h4>
+          <p style="margin:6px 0 8px;">In​‍​‌‍​‍‌​‍​‌‍​‍‌ case of internet content, a person has to be curious and 
+            at the same time cautious and also must have the capability of distinguishing if the content is 
+            fact, opinion, or manipulation.</p>
+        </article>
+
+        <article class="menu-item fade-up" style="animation-delay:.51s">
+          <img src="c:\Users\Lenovo\Downloads\balance.jpg" alt="etiquette">
+          <h4>Practice Responsible Digital Well-Being.</h4>
+          <p style="margin:6px 0 8px;">Users must learn to balance their online activities by setting 
+            screen-time limits, taking regular breaks, and being mindful of how digital content affects 
+            their emotions and productivity. Maintaining healthy digital habits supports both mental well-being 
+            and effective online engagement.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CYBER SAFETY -->
+    <section style="display:none;" id="cyberSafety" class="page">
+      <h2 style="font-family:Lora, serif;color:var(--indigo)">Discover Cyber Safety: Your Shield in the Online World</h2>
+      <p>Stay protected online with quick, smart, and easy-to-follow practices that help you browse safely, 
+        guard your information, and make responsible digital choices.</p>
+
+      <div class="reviews">
+        <div class="review fade-up">
+          <strong>Enable Multi-Factor Protection</strong>
+          <p style="margin:6px 0 0">Secure accounts with an additional verification other than a password by 
+            turning on Multi-Factor Authentication (MFA).</p>
+        </div>
+        <div class="review fade-up" style="animation-delay:.08s">
+          <strong>Keep Your Devices Secure</strong>
+          <p style="margin:6px 0 0">Keep your gadgets safe by installing antivirus software, enabling your 
+            firewall, and locking your device with strong passwords or biometrics.</p>
+        </div>
+
+         <div class="review fade-up" style="animation-delay:.16s">
+          <strong>Stay Alert With Emails and Links</strong>
+          <p style="margin:6px 0 0">Handle emails and links with caution. Avoid opening 
+            attachments from unknown senders and do not click suspicious links to prevent phishing or malware.</p>
+        </div>
+
+         <div class="review fade-up" style="animation-delay:.26s">
+          <strong>Review and Adjust Privacy Settings</strong>
+          <p style="margin:6px 0 0">Regularly check or change the privacy settings on social media and
+             apps to control what information you share.</p>
+        </div>
+
+         <div class="review fade-up" style="animation-delay:.36s">
+          <strong>Create Strong and Unique Passwords</strong>
+          <p style="margin:6px 0 0">Use complex passwords with mixed characters and avoid using
+             the same password across platforms.</p>
+        </div>
+
+         <div class="review fade-up" style="animation-delay:.46s">
+          <strong>Be Careful With Public Wi-Fi</strong>
+          <p style="margin:6px 0 0">Limit sensitive transactions on public networks 
+            or use a trustworthy VPN to stay protected.</p>
+        </div>
+
+         <div class="review fade-up" style="animation-delay:.56s">
+          <strong>Back Up Important Data</strong>
+          <p style="margin:6px 0 0">Regularly back up essential files on encrypted drives or 
+            trusted cloud services to prepare for data loss.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.66s">
+          <strong>Limit Personal Information Online</strong>
+          <p style="margin:6px 0 0">Avoid sharing too much identifiable 
+            information online to reduce the chances of identity theft.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.76s">
+          <strong>Monitor Your Digital Footprint</strong>
+          <p style="margin:6px 0 0">Review your online presence regularly to 
+            ensure no sensitive or unauthorized information is publicly accessible.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.86s">
+          <strong>Guide Children and Teens Online</strong>
+          <p style="margin:6px 0 0">Teach young users how to identify safe and 
+            unsafe online interactions, and maintain open communication with them.</p>
+        </div>
+
+        
+      </div>
+    </section>
+
+   
+<!-- CONTACT -->
+    <section style="display:none;" id="contact" class="page">
+      <div class="fade-up" style="animation-delay:.18s">
+      <h2 style="font-family:Lora, serif;color:var(--indigo)">Contact Us</h2>
+      <div class="card" style="margin-top:10px">
+        <p>If you'd like to partner with us, request a workshop, or have questions, send a message below.</p>
+        <form class="contact-form" onsubmit="event.preventDefault();alert('Message sent (demo)')">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+
+        <div style="margin-top:12px;font-size:14px;color:rgba(43,43,43,0.7)">
+          <strong>Email:</strong> info@digitalliteracy.org<br>
+          <strong>Phone:</strong> +123 456 7890
+        </div>
+      </div>
+      </div>
+    </section>
+  
+   
+
+
+<!-- QUIZ PAGE -->
+<section style="display:none;" id="quizPage" class="page" > 
+  <h2 style="font-family:Lora, serif;color:var(--indigo)">Digital Literacy and Cyber Safety Quiz</h2>
+  <div class="fade-up" style="animation-delay:.25s">
+  <div class="card" style="margin-top:20px; padding-bottom:25px;">
+    <p>Test your knowledge. Choose the correct answers and click submit!</p>
+
+    <form id="quizForm" onsubmit="event.preventDefault(); showQuizResults();">
+      
+      <!-- QUESTION 1 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">1. You see a viral Facebook post claiming a celebrity died, 
+          but it has no source. What should you do?</h3>
+        <label><input type="radio" name="q1" value="a"> Share it immediately</label><br>
+        <label><input type="radio" name="q1" value="b"> Check credible news sites first</label><br>
+        <label><input type="radio" name="q1" value="c"> Assume it’s real</label>
+      </div>
+
+      <!-- QUESTION 2 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">2. An article seems informative but has no author, no date, 
+          and an unfamiliar website. What is the best action?</h3>
+        <label><input type="radio" name="q2" value="a"> Believe it because it matches your views</label><br>
+        <label><input type="radio" name="q2" value="b"> Share it</label><br>
+        <label><input type="radio" name="q2" value="c"> Verify the site’s credibility</label>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">3. A friend sends a link saying “FREE AIRPODS TODAY! Just sign in.” What should you do?</h3>
+        <label><input type="radio" name="q3" value="a"> Sign in quickly</label><br>
+        <label><input type="radio" name="q3" value="b"> Ignore and warn your friend</label><br>
+        <label><input type="radio" name="q3" value="c"> Click but don’t type anything</label>
+      </div>
+
+      <!-- QUESTION 4 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">4. You want to post a picture showing your home address and ID. 
+          What’s the safest choice?</h3>
+        <label><input type="radio" name="q4" value="a"> Post it anyway</label><br>
+        <label><input type="radio" name="q4" value="b"> Hide personal details before posting</label><br>
+        <label><input type="radio" name="q4" value="c"> Post it on your story only</label>
+      </div>
+
+      <!-- QUESTION 5 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">5. You need an image for a school project. What’s the ethical action?</h3>
+        <label><input type="radio" name="q5" value="a"> Remove the watermark</label><br>
+        <label><input type="radio" name="q5" value="b"> Credit the creator</label><br>
+        <label><input type="radio" name="q5" value="c"> Copy without credits</label>
+      </div>
+
+      <!-- QUESTION 6 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">6. Your password is “password123.” What should you do?</h3>
+        <label><input type="radio" name="q6" value="a"> Keep it</label><br>
+        <label><input type="radio" name="q6" value="b"> Add “!!” to the end</label><br>
+        <label><input type="radio" name="q6" value="c"> Create a strong, unique password</label>
+      </div>
+
+      <!-- QUESTION 7 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">7. A security update pops up on your phone. What should you do?</h3>
+        <label><input type="radio" name="q7" value="a"> Ignore it</label><br>
+        <label><input type="radio" name="q7" value="b"> Install the update</label><br>
+        <label><input type="radio" name="q7" value="c"> Disable updates</label>
+      </div>
+
+      <!-- QUESTION 8 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">8. Your school files are all mixed in one folder. What is the best organizational method?</h3>
+        <label><input type="radio" name="q8" value="a"> Sort into folders and back up</label><br>
+        <label><input type="radio" name="q8" value="b"> Put everything on a USB without backup</label><br>
+        <label><input type="radio" name="q8" value="c"> Delete old files instantly</label>
+      </div>
+
+      <!-- QUESTION 9 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">9. You receive an email asking for your password to “verify your account.” What should you do?</h3>
+        <label><input type="radio" name="q9" value="a"> Reply and give your password</label><br>
+        <label><input type="radio" name="q9" value="b"> Click the link</label><br>
+        <label><input type="radio" name="q9" value="c"> Delete or report the email</label>
+      </div>
+
+      <!-- QUESTION 10 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">10. You’re using public Wi-Fi and need to access your bank account. What should you do?</h3>
+        <label><input type="radio" name="q10" value="a"> Log in quickly</label><br>
+        <label><input type="radio" name="q10" value="b"> Wait for a secure network or use VPN</label><br>
+        <label><input type="radio" name="q10" value="c"> Ask the staff if it’s safe</label>
+      </div>
+
+      <!-- QUESTION 11 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">11. You see a fake profile pretending to be you. What’s the best action?</h3>
+        <label><input type="radio" name="q11" value="a"> Ignore</label><br>
+        <label><input type="radio" name="q11" value="b"> Report and adjust privacy settings</label><br>
+        <label><input type="radio" name="q11" value="c"> Message the person</label>
+      </div>
+
+      <!-- QUESTION 12 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">12. A younger sibling feels uncomfortable after chatting with someone online. What do you do?</h3>
+        <label><input type="radio" name="q12" value="a"> Tell them to ignore</label><br>
+        <label><input type="radio" name="q12" value="b"> Tell them to keep it secret</label><br>
+        <label><input type="radio" name="q12" value="c"> Guide them and report harmful behavior</label>
+      </div>
+
+      <!-- QUESTION 13 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">13. You find a random USB at school. What should you do?</h3>
+        <label><input type="radio" name="q13" value="a"> Plug it in</label><br>
+        <label><input type="radio" name="q13" value="b"> Give it to the school office</label><br>
+        <label><input type="radio" name="q13" value="c"> Format it immediately</label>
+      </div>
+
+      <!-- QUESTION 14 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">14. A gadget store website has “http” and many spelling errors. What should you do?</h3>
+        <label><input type="radio" name="q14" value="a"> Buy something small</label><br>
+        <label><input type="radio" name="q14" value="b"> Enter fake details</label><br>
+        <label><input type="radio" name="q14" value="c"> Avoid the site and warn your friend</label>
+      </div>
+
+      <!-- QUESTION 15 -->
+      <div class="quiz-question" style="margin-bottom:25px;">
+        <h3 style="margin-bottom:10px;">15. Someone posts an emotional but misleading argument online. What should you do before reacting?</h3>
+        <label><input type="radio" name="q15" value="a"> Research and identify if it’s fact or opinion</label><br>
+        <label><input type="radio" name="q15" value="b"> React emotionally</label><br>
+        <label><input type="radio" name="q15" value="c"> Insult them</label>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit" style="
+        margin-top:20px;
+        padding:12px 18px;
+        font-size:16px;
+        border-radius:8px;">
+        Submit Answers
+      </button>
+
+    </form>
+
+    <!-- RESULTS AREA -->
+    <div id="quizResults" 
+         style="margin-top:25px; display:none; font-size:15px; 
+         color:var(--indigo); animation:fadeIn 0.9s ease;">
+    </div>
+  </div>
+  </div>
+</section>
+
+<script>
+function showQuizResults() {
+  const correct = {
+    q1: "b",
+    q2: "c",
+    q3: "b",
+    q4: "b",
+    q5: "b",
+    q6: "c",
+    q7: "b",
+    q8: "a",
+    q9: "c",
+    q10: "b",
+    q11: "b",
+    q12: "c",
+    q13: "b",
+    q14: "c",
+    q15: "a"
+  };
+
+  let score = 0;
+  let total = Object.keys(correct).length;
+
+  document.querySelectorAll(".quiz-question label").forEach(label => {
+    label.style.color = "";      // reset
+    label.style.fontWeight = ""; // reset
+  });
+
+  Object.keys(correct).forEach(q => {
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+    const correctAnswer = correct[q];
+
+    // highlight correct answer green
+    const correctLabel = document.querySelector(`input[name="${q}"][value="${correctAnswer}"]`).parentElement;
+    correctLabel.style.color = "green";
+    correctLabel.style.fontWeight = "600";
+
+    // highlight user's wrong answer red
+    if (selected && selected.value !== correctAnswer) {
+      selected.parentElement.style.color = "red";
+      selected.parentElement.style.fontWeight = "600";
+    }
+
+    // score update
+    if (selected && selected.value === correctAnswer) score++;
+  });
+
+  document.getElementById("quizResults").style.display = "block";
+  document.getElementById("quizResults").innerHTML =
+    `<strong>Your Score:</strong> ${score} / ${total}`;
+}
+</script>
+
+<style>
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(5px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+
+<!-- GLOSSARY -->
+<section style="display:none;" id="glossary" class="page">
+      <h2 style="font-family:Lora, serif;color:var(--indigo)">Welcome to the Glossary!</h2>
+      <p>This glossary is designed to help you understand the key terms, concepts, and ideas that shape today’s online world. Whether you're new 
+        to digital literacy or simply refreshing your knowledge, this guide will support you in becoming a more informed, responsible, and confident digital user.</p>
+
+      <div class="reviews">
+        <div class="review fade-up">
+          <strong>Antivirus Software</strong>
+          <p style="margin:6px 0 0">Programs designed to detect, prevent, and remove harmful software from devices.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.08s">
+          <strong>Backups</strong>
+          <p style="margin:6px 0 0">Copies of important data stored separately to prevent loss caused by device failure, hacking, or accidental deletion.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.18s">
+          <strong>Cloud Storage</strong>
+          <p style="margin:6px 0 0">Online services that securely store digital files and allow access from any device with internet connection.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.28s">
+          <strong>Credible Source</strong>
+          <p style="margin:6px 0 0">A trustworthy origin of information with identifiable authors, dates, and evidence.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.38s">
+          <strong>Cyber Safety</strong>
+          <p style="margin:6px 0 0">Practices that protect users from online risks such as scams, malware, or identity theft.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.48s">
+          <strong>Digital Etiquette (Netiquette)</strong>
+          <p style="margin:6px 0 0">Proper and respectful online behavior, including giving credit to creators and communicating responsibly.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.58s">
+          <strong>Digital Footprint</strong>
+          <p style="margin:6px 0 0">The trail of online activities—such as posts, searches, and interactions—that represent a person’s online presence.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.68s">
+          <strong>Digital Literacy</strong>
+          <p style="margin:6px 0 0">The ability to use technology confidently, responsibly, and safely while understanding how
+             to find reliable information and protect personal data.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.78s">
+          <strong>Digital Trends</strong>
+          <p style="margin:6px 0 0">New technologies, tools, or online behaviors that influence how people use the internet.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.88s">
+          <strong>Digital Well-Being</strong>
+          <p style="margin:6px 0 0">Maintaining a healthy balance in online activities through screen-time control, breaks, and mindful device use.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.98s">
+          <strong>Fact-Checking</strong>
+          <p style="margin:6px 0 0">The act of verifying information using multiple trusted sources before believing or sharing it.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.108s">
+          <strong>File Management</strong>
+          <p style="margin:6px 0 0">Organizing digital files into folders, drives, or cloud storage for easier access and safety.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.118s">
+          <strong>Firewall</strong>
+          <p style="margin:6px 0 0">A security system that blocks unauthorized access to a device or network.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.128s">
+          <strong>Identity Theft</strong>
+          <p style="margin:6px 0 0">A crime where someone uses another person’s personal information to impersonate them online.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.138s">
+          <strong>Malware</strong>
+          <p style="margin:6px 0 0">Harmful software designed to damage devices, steal data, or gain unauthorized access.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.148s">
+          <strong>Multi-Factor Authentication (MFA)</strong>
+          <p style="margin:6px 0 0">A security feature requiring two or more verification steps—like passwords and OTP codes—to access an account.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.158s">
+          <strong>Password Strength</strong>
+          <p style="margin:6px 0 0">How secure a password is, based on its length and the mix of letters, numbers, and symbols.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.168s">
+          <strong>Phishing</strong>
+          <p style="margin:6px 0 0">A scam where attackers pretend to be trusted sources to steal information or trick users into clicking dangerous links.</p>
+        </div>
+
+        <div class="review fade-up" style="animation-delay:.178s">
+          <strong>VPN (Virtual Private Network)</strong>
+          <p style="margin:6px 0 0">A tool that encrypts your internet connection, offering extra security—especially on public Wi-Fi.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+<footer>
+      &copy; 2025 GROUP 7 Click Smart, Stay Safe — Click with intention, stay in protection.
+    </footer>
+  </main>
+
+
+
+</html>
+  <script>
+    // simple smooth scroll for nav
+    document.querySelectorAll('nav.main-nav a').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+
+    // reveal animations on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting) ent.target.classList.add('visible');
+      })
+    },{threshold:0.08});
+    document.querySelectorAll('.fade-up').forEach(el=>{
+      io.observe(el);
+      // add final visible state
+      el.addEventListener('animationend',()=>el.style.opacity='1');
+    });
+
+  </script>
+</body>
+</html>
